@@ -1,0 +1,24 @@
+<!--
+**** HTML for dancing Pieman
+**** demonstrates keyboard, mouse, and timing events
+**** helpful for starting Lab 3!
+**** CMPT304 Lecture Feb. 4 + 7, 2022
+**** Ben Cameron
+**** 
+-->
+<!doctype html>
+
+<html>
+
+	<link href = "dancingpieman.css" type = "text/css" rel = "stylesheet"> <!--Links the css sheet--> 
+	
+	<head>
+		<title>Dancing Pieman</title>
+	</head>
+
+	<body>
+		<img id="Pieman" src="closed.png" width= "80px" height= "80px" alt="Pieman with their mouth closed" >
+		<script type="text/Javascript" src="dancingpieman.js"></script>		
+	</body>
+
+</html>

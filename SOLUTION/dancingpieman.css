@@ -1,0 +1,13 @@
+/* style for dancing Pieman
+** CMPT304 Lecture Feb. 4 + 7, 2022
+** Ben Cameron
+*/
+
+h6{
+	color: yellow;
+	background-color: black;
+	position: absolute;
+	top: 90px;
+	width: 260px;
+}
+

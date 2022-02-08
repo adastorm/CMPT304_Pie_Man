@@ -1,0 +1,44 @@
+/* JavaScript for dancing Pieman
+** CMPT304 Lecture Feb. 4 + 7, 2022
+** Ben Cameron
+*/
+
+/* FUNCTIONS*/
+
+//create function changeImage(event) to respond to an arrow key direction that will change Pieman's image to the correspond to the key pressed
+function changeImage(event)
+{
+	if(event.key == "ArrowLeft")
+	{
+		pm.setAttribute("src","Left1.png");
+	}	
+}
+
+//create function closeMouth() that closes Pieman's mouth on a mouse click
+
+
+
+//create function startMotion() that 
+
+
+/* ADDING EVENT LISTENERS*/
+
+//add event listener for keydown event that calls changeImage
+document.addEventListener('keydown', changeImage, false);
+
+//add event listener to Pieman that will close pieman's mouth on click
+var pm = document.getElementById("Pieman"); //note script tags have to appear after the img tag with id Pieman no element yet exists!
+
+
+//setIntervalfor 100 miliseconds to move pieman by 10px
+
+
+/*GLOBAL VARIABLES FOR PIEMAN MOTION*/
+
+
+/*LAST MODIFIED MESSAGE*/
+var modNode = document.createElement('h6');
+document.body.appendChild(modNode);
+var mod = document.lastModified;
+modNode.textContent = "Last modified by CMPT304 class on " + mod;
+
