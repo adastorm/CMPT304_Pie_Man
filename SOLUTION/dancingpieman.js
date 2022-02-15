@@ -84,7 +84,7 @@ var direction = 1; //1 if moving right, -1 if moving left
 
 /*LAST MODIFIED MESSAGE*/
 var modNode = document.createElement('h6');
-document.body.appendChild(modNode);
+document.body..appendChild(modNode);
 var mod = document.lastModified;
 modNode.textContent = "Last modified by CMPT304 class on " + mod;
 
