@@ -5,19 +5,19 @@ document.addEventListener("keydown", changeImage, false);
 var timeOutVariable = window.setInterval(startMotion, 25);
 
 /*GLOBAL VARIABLES FOR PIEMAN MOTION*/
-var x = 0; //keeps track Pieman's left position
+var x = 50; //keeps track Pieman's left position
+var y = 0;
 
 
-
-var direction = 1;
+var direction = 0;
 //        up
 //		   2
 //left -1  0  1 right
 //		  -2
 //       down
 
-var animationFrame = 0;
-
+var animationFrame = 1;
+var animationIncreacing = true;
 var pm = document.getElementById("Pieman");
 
 
@@ -26,22 +26,22 @@ var pm = document.getElementById("Pieman");
 function changeImage(event) {
 	//add event listener to Pieman that will close pieman's mouth on click
 	if (event.key == "ArrowLeft") {
-		pm.setAttribute("src", "images/Left01.PNG");
+		// pm.setAttribute("src", "images/Left01.PNG");
 		pm.setAttribute("alt", "Pieman facing left");
 		direction = -1;
 	}
 	if (event.key == "ArrowRight") {
-		pm.setAttribute("src", "images/Right01.PNG");
+		// pm.setAttribute("src", "images/Right01.PNG");
 		pm.setAttribute("alt", "Pieman facing right");
 		direction = 1;
 	}
 	if (event.key == "ArrowUp") {
-		pm.setAttribute("src", "images/Up01.PNG");
+		// pm.setAttribute("src", "images/Up01.PNG");
 		pm.setAttribute("alt", "Pieman facing up");
 		direction = 2;
 	}
 	if (event.key == "ArrowDown") {
-		pm.setAttribute("src", "images/Down01.PNG");
+		// pm.setAttribute("src", "images/Down01.PNG");
 		pm.setAttribute("alt", "Pieman facing down");
 		direction = -2;
 	}
@@ -52,29 +52,56 @@ function startMotion() {
 	pm.style.position = "absolute";
 
 	updateFrame();
-	if (direction == -1 || direction == 1){
-		if (x + 90 > window.innerWidth && direction == 1)
-			direction = 0;
-		else if (x - 10 < 0 && direction == -1)
-			direction = 0;
-		else {
-			x += direction * 10;
-			pm.style.left = x + "px";
-		}
+	if (direction == 1 && x + 90 <= window.innerWidth) {
+		x += direction * 10;
 	}
+	if (direction == -1 && x - 10 >= 0) {
+		x += direction * 10;
+	}
+	if (direction == 2 && y - 10 > 0) {
+		y += direction * -5;
+	}
+	if (direction == -2 && y + 90 < window.innerHeight) {
+		y += direction * -5;
+		
+	}
+	pm.style.left = x + "px";
+	pm.style.top = y + "px";
 }
 
 
 function updateFrame()
 {
+
 	let name = "images/";
 	switch (direction) {
 		case -1:
-			name += ""
+			name += "Left";
 			break;
+		case 1:
+			name += "Right";
+			break;
+		case -2:
+			name += "Down";
+			break;
+		case 2:
+			name += "Up";
+			break;
+		case 0:
+			break;
+	}
+
+	if (direction == 0) pm.setAttribute("src", "images/stopped.PNG");
+	else {
+		if (animationFrame >= 12) animationIncreacing = false;
+		if (animationFrame <= 1) animationIncreacing = true;
 	
-		default:
-			break;
+		name += "" + animationFrame + ".PNG";
+		console.log(name);
+		pm.setAttribute("src", name);
+
+		if (animationIncreacing) animationFrame++;
+		else animationFrame--;
 	}
 }
  
