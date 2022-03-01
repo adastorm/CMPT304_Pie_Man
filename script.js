@@ -26,7 +26,7 @@ var pm = document.getElementById("Pieman");
 
 //Arrays and stuff for teh pellets life
 var pel = document.getElementById("PacDots");
-var newTime = 1000;
+var newTime = 300;
 var numPellets = 0;
 var pelletArray = [];
 
@@ -46,8 +46,8 @@ createPellet(newTime,numPellets);
 function createPellet(time, index) {
 	//Create a structure for the array
 	pelletArray[index] = {
-		x: Math.floor(Math.random()* (window.innerWidth)),
-		y: Math.floor(Math.random()* (window.innerHeight-100)),
+		x: Math.floor(Math.random()* (window.innerWidth-200)),
+		y: Math.floor(Math.random()* (window.innerHeight-200)),
 		time: time,
 		originalTime: time
 	}
@@ -164,8 +164,8 @@ function pelletHit()
 		{
 			pelletArray[index].time = 0;
 			console.log()
-			createPellet(pelletArray[index].originalTime/2, numPellets);
-			createPellet(pelletArray[index].originalTime/2, numPellets);
+			createPellet(pelletArray[index].originalTime*.95, numPellets);
+			createPellet(pelletArray[index].originalTime*.95, numPellets);
 			score++;
 			break;
 		}
