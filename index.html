@@ -1,13 +1,21 @@
 <!DOCTYPE html>
-
-
-
 <html>
     <head>
         <link href = "style.css" rel="stylesheet">
     </head>
     <body>
+        <!-- add the audio files -->
+        <audio id="death">
+            <source src="/sounds/death.mp3" type="audio/mp3">
+        </audio>
+        <audio id="walk">
+            <source src="/sounds/walk.mp3" type="audio/mp3">
+        </audio>
+
+        
         <h1>NOT PACK MAN</h1>
+        <h2 id="Score"></h2>
+        <div id="PacDots"></div>
         <img id="Pieman" src="images/stopped.PNG" width="80px" height="80px" alt="Pieman with their mouth closed">
     </body>
     <script type="text/javascript" src="script.js"></script>
